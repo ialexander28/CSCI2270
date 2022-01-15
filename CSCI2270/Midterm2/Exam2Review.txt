@@ -1,0 +1,112 @@
+//Exam 2 Lecture quiz notes
+
+Trees:
+
+Leaf nodes are terminal nodes with no children.
+
+The height of the tree is determined by edges between root and leaf, not number of nodes top to bottom
+
+The following code will NOT find the key:
+Node* searchElement(Node* root, int searchKey)
+{
+	if(root != NULL)
+	{
+		if(root -> key == searchKey)
+			return root;
+		else if(searchKey > root -> key)
+			searchElement(root -> left, searchKey);
+		else
+			searchElement(root -> right, searchKey);
+	}
+}
+//////////////////////////////////////////////////////////////
+
+Trees start at the root: less than goes left, greater than goes right
+
+Recursion: There must be a base case. Once the base case is reached, the algorithm should return without additional recursive calls. 
+There must also be a set of rules that can reduce all cases down to the base case.
+
+How to delete a node with one child: 
+Update the node's parent to point to the node's child, then free the memory to delete the node
+
+Nodes will replace deleted nodes based on order of number just like growing the tree.
+
+To print the elements of a BST in ascending order, you would print them in order.
+
+Traversal orders:
+
+root-left-right = preorder //copy
+left-root-right = in order
+left-right-root = postorder //delete
+
+The complexity to search in a balanced binary tree is O(log(n)). Same for a red-black tree.
+
+The degree of a given node is its total children.
+
+The properties of a node in a red-black tree include color, parent, left child, right child, and key.
+
+The representation of leaf nodes in an RB tree is different from that in a BST. 
+The leaf nodes in an RB tree have the same node structure as the other nodes in the tree except for the fact that they are effectively empty.
+
+In red-black trees, nodes are initially added as red.
+
+When a node is added to the tree, the two properties that can be violated are that The root must be black, and that The children of a red node must be black.
+
+New nodes in an RBT cannot have a red uncle.
+
+Inserting a red leaf and deleting it will result in the original tree.
+
+/////////////////////////////////////////////////////////////////////////
+GRAPHS
+
+In an undirected graph G with vertices A, B, C and D, if a path exists from vertex A to vertex B, there exists a path from vertex B to vertex A.
+
+The adjacency matrix for a directed graph with only one unidirectional edge between vertices is NOT symmetric.
+
+In an adjacency matrix for an undirected weighted graph, the distance from a place to itself is entered as 0 and a non-existing edge between vertices is entered as -1.
+
+The maximum number of directed edges possible in a graph with n vertices is n * (n-1).
+
+The graph implementation uses vectors instead of an array or a linked list to simplify the memory management of the graph.
+
+A complete graph is one in which each vertex is connected to every other vertex. Now, consider a complete graph for  n vertices.
+ The structure that would answer the question "Is vertex1 adjacent to vertex n?" fastest is an adjaceny matrix.
+
+You can insert an element into a vector using the vector push() method.
+///////////////////////////////////////////
+
+#include <vector>
+#include <iostream>
+//...
+
+std::vector<int> array;
+int i = 999; 
+array.reserve(10);
+array.push_back(i);
+std::cout<<array.capacity()<<std::endl;
+std::cout<<array.size()<<std::endl;
+
+The output of this code is 10.
+
+///////////////////////////////////////////
+
+When a vertex is added to the vertices vector, you do not need to explicitly allocate memory for the new vertex.
+
+///////////////////////////////////////////
+
+root is level one in a BST
+
+BST, RB trees, graphs for MC questions
+
+rotation notes for a RB tree - get it ready in the book
+
+there is no delete in a RB tree
+
+know how an insert works on a RB tree
+
+//////////////////////////////////////
+
+BSTs
+
+BFS on a graph - we have this code
+guaranteed to get shortest number of hops - we changed this in the hw9
